@@ -1,0 +1,10 @@
+<h1>Conversions app</h1>
+<p>Please upload .doc file for magic:)</p>
+<div class="form-group">
+  <%= form_for @conversion do |f| %>
+    <%= f.label :file%>
+    <%= f.file_field :file%>
+    <%= f.submit %>
+  <% end %>
+</div>
+
