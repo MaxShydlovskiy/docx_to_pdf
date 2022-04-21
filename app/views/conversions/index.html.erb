@@ -1,10 +1,4 @@
-<h1>Conversions app</h1>
-<p>Please upload .doc file for magic:)</p>
-<div class="form-group">
-  <%= form_for @conversion do |f| %>
-    <%= f.label :file%>
-    <%= f.file_field :file%>
-    <%= f.submit %>
-  <% end %>
-</div>
-
+<h1>Conversions app</h1><br>
+<h2>This application is for converting files</h2>
+<p>Please, click link & get be ready for upload</p>
+<%= link_to "Go to upload", new_conversion_path %>

@@ -1,0 +1,9 @@
+<h2>Please upload .doc file for convertation process</h2><br>
+<div class="form-group">
+  <%= form_for @conversion do |f| %>
+    <%= f.label :file%>
+    <%= f.file_field :file%>
+    
+    <%= f.submit "Click to start", method: "post" %>
+  <% end %><br>
+</div>
