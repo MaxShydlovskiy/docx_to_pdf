@@ -8,7 +8,7 @@ class ConversionsController < ApplicationController
 
   def create
     conversion = Conversion.new
-    conversion.file.attach(data: params[:request][:file], filename: 'conversion_file')
+    conversion.file.attach(data: params[:conversion][:base64][:file], filename: 'conversion_file')
     conversion.save
     if conversion.save
       render jsonapi: conversion
