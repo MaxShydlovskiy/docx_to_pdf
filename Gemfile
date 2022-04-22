@@ -75,3 +75,5 @@ group :test do
 end
 
 gem 'jsonapi.rb'
+gem 'carrierwave', '~> 2.0'
+gem 'bootstrap-sass'

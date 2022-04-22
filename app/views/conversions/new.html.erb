@@ -1,9 +1,21 @@
-<h2>Please upload .doc file for convertation process</h2><br>
-<div class="form-group">
-  <%= form_for @conversion do |f| %>
-    <%= f.label :file%>
-    <%= f.file_field :file %>
-    
-    <%= f.submit "Click to start", method: "post" %>
-  <% end %><br>
+<% if !@conversion.errors.empty? %>
+   <div class = "alert alert-error">
+      
+      <ul>
+         <% @conversion.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+         <% end %>
+      </ul>
+      
+   </div>
+<% end %>
+
+<div class = "well">
+   <%= form_for @conversion, html: { multipart: true } do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :attachment %>
+      <%= f.file_field :attachment %>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+   <% end %>
 </div>

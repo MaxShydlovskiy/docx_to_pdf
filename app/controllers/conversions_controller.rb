@@ -1,19 +1,32 @@
 class ConversionsController < ApplicationController
   def index
+    @conversions = Conversion.all
   end
-
-  def new
+ 
+ def new
     @conversion = Conversion.new
-  end
-
-  def create
-    conversion = Conversion.new
-    conversion.file.attach(data: params[:conversion][:base64][:file], filename: 'conversion_file')
-    conversion.save
-    if conversion.save
-      render jsonapi: conversion
+ end
+ 
+ def create
+    @conversion = Conversion.new(conversion_params)
+    
+    if @conversion.save
+       redirect_to conversions_path, notice: "The file #{@conversion.name} has been uploaded."
     else
-      render json: error_json('Conversion could not be created', 422), status: :unprocessable_entity
+       render "new"
     end
+    
+ end
+ 
+ def destroy
+    @conversion = Conversion.find(params[:id])
+    @conversion.destroy
+    redirect_to conversions_path, notice:  "The file #{@conversion.name} has been deleted."
+ end
+ 
+ private
+
+  def conversion_params
+    params.require(:conversion).permit(:name, :attachment)
   end
 end

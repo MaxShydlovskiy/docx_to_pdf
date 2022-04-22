@@ -14,13 +14,11 @@
  *= require_self
  */
 
+@import "bootstrap"; 
+
 body {
-  text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-style: oblique;
-  padding: 60px;
-  font-size: large;
-  margin: 15px;
   color: indigo;
   background-color: gainsboro;
 }

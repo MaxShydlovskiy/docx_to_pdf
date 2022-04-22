@@ -1,4 +1,36 @@
-<h1>Conversions app</h1><br>
-<h2>This application is for converting files</h2>
-<p>Please, click link & get be ready for upload</p>
-<%= link_to "Go to upload", new_conversion_path %>
+<div class="container">   
+<% if !flash[:notice].blank? %>   
+   <div>   
+      <%= flash[:notice] %>   
+   </div>   
+<% end %>   
+  
+<br>   
+  
+<%= link_to "New File", new_conversion_path %>   
+<br>   
+<br>   
+  
+<table border="3">   
+   <thead>   
+      <tr>   
+         <th>File Name</th>   
+         <th>Download Link</th>   
+         <th>Action</th>   
+      </tr>   
+   </thead>   
+      
+   <tbody>   
+      <% @conversions.each do |conversion| %>   
+            
+         <tr>   
+            <td><%= conversion.name %></td>   
+            <td><%= link_to "Download", conversion.attachment_url %></td>   
+            <td><%= link_to "Delete",  conversion, method: :delete, confirm: "Are you sure you want to delete #{conversion.name}?" %></td>   
+         </tr>   
+            
+      <% end %>   
+   </tbody>   
+      
+</table>   
+</div>  
