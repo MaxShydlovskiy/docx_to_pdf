@@ -77,3 +77,6 @@ end
 gem 'jsonapi.rb'
 gem 'carrierwave', '~> 2.0'
 gem 'bootstrap-sass'
+gem 'libreconv'
+
+gem "sidekiq", "~> 6.4"

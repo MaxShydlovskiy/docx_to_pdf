@@ -96,6 +96,7 @@ GEM
       ssrf_filter (~> 1.0)
     childprocess (4.1.0)
     concurrent-ruby (1.1.10)
+    connection_pool (2.2.5)
     crass (1.0.6)
     debug (1.5.0)
       irb (>= 1.3.6)
@@ -125,6 +126,7 @@ GEM
     jsonapi.rb (2.0.0)
       jsonapi-serializer
       rack
+    libreconv (0.9.5)
     loofah (2.16.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -193,6 +195,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (4.6.0)
     regexp_parser (2.3.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -206,6 +209,10 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
+    sidekiq (6.4.2)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -254,10 +261,12 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jsonapi.rb
+  libreconv
   pg
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.3)
   selenium-webdriver
+  sidekiq (~> 6.4)
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

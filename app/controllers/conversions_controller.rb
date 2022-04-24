@@ -11,9 +11,11 @@ class ConversionsController < ApplicationController
     @conversion = Conversion.new(conversion_params)
     
     if @conversion.save
-       redirect_to conversions_path, notice: "The file #{@conversion.name} has been uploaded."
+#      Libreconv.convert("#{Rails.root}/public/uploads/conversion/attachment/#{@conversion.name}/#{@original_filename}", 
+#                        "#{Rails.root}/public/uploads/conversion/attachment/#{@conversion.name}/#{@original_filename}")
+      redirect_to conversions_path, notice: "The file #{@conversion.name} has been uploaded."
     else
-       render "new"
+      render "new"
     end
     
  end
