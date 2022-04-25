@@ -1,4 +1,4 @@
 class Conversion < ApplicationRecord
-  mount_uploader :attachment, AttachmentUploader
-  validates :name, presence:
+  mount_uploaders :attachments, AttachmentUploader
+  serialize :attachments, JSON
 end

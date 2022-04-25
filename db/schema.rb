@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_22_121903) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_25_161613) do
   create_table "conversions", force: :cascade do |t|
     t.string "name"
-    t.string "attachment"
+    t.string "attachments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

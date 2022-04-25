@@ -29,6 +29,6 @@ class ConversionsController < ApplicationController
  private
 
   def conversion_params
-    params.require(:conversion).permit(:name, :attachment)
+    params.require(:conversion).permit(:name, {attachments: []})
   end
 end

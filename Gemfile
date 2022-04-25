@@ -80,3 +80,4 @@ gem 'bootstrap-sass'
 gem 'libreconv'
 
 gem "sidekiq", "~> 6.4"
+gem 'ransack'
