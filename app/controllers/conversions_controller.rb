@@ -22,7 +22,7 @@ class ConversionsController < ApplicationController
  
  def destroy
     @conversion = Conversion.find(params[:id])
-    @conversion.destroy
+    @conversion.destroy!
     redirect_to conversions_path, notice:  "The file #{@conversion.name} has been deleted."
  end
  
