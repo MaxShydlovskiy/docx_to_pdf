@@ -7,6 +7,8 @@ class TransformationJob < ApplicationJob
     @path = c.attachment_url
     @root = "#{Rails.root}/public/"
     @pdf = ".pdf"
+    doc_file = @root+@path
+    pdf_file = @root+
     Libreconv.convert(@root+@path, @root+@path+@pdf)
   end
 end
