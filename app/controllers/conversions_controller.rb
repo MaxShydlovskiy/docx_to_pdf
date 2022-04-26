@@ -19,6 +19,19 @@ class ConversionsController < ApplicationController
     end
     
  end
+
+ def edit
+ end
+
+ def update
+  @conversion = Conversion.find(params[:id])
+  if @conversion.update(conversion_params)
+    flash.notice = "Uploading information was succesfully updating"
+    redirect_to conversions_path
+  else
+    flash.now.alert = "Something went wrong. Please try updating again!"
+  end
+ end
  
  def destroy
     @conversion = Conversion.find(params[:id])

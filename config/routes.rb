@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resources :conversions, only: [:index, :new, :create, :destroy]
+  resources :conversions, only: [:index, :new, :create, :edit, :update, :destroy]
   root "conversions#index"
 end
