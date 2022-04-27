@@ -1,4 +1,4 @@
 class Conversion < ApplicationRecord
-  mount_uploaders :attachments, AttachmentUploader
-  serialize :attachments, JSON
+  mount_uploader :doc_file, DocfileUploader
+  mount_uploader :pdf_file, PdfFileUploader
 end

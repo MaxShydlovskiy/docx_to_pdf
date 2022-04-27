@@ -75,9 +75,8 @@ group :test do
 end
 
 gem 'jsonapi.rb'
+gem 'ransack'
 gem 'carrierwave', '~> 2.0'
 gem 'bootstrap-sass'
 gem 'libreconv'
-
 gem "sidekiq", "~> 6.4"
-gem 'ransack'
