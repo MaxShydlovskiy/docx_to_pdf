@@ -3,11 +3,11 @@ class ConversionsController < ApplicationController
     @conversions = Conversion.all
   end
  
- def new
+  def new
     @conversion = Conversion.new
- end
+  end
  
- def create
+  def create
     @conversion = Conversion.new(conversion_params)
     # TransformationJob.perform_now
     
@@ -16,21 +16,30 @@ class ConversionsController < ApplicationController
     else
       render "new"
     end
-    
- end
-
- def edit
- end
-
- def update
-  @conversion = Conversion.find(params[:id])
-  if @conversion.update(conversion_params)
-    flash.notice = "Uploading information was succesfully updating"
-    redirect_to conversions_path
-  else
-    flash.now.alert = "Something went wrong. Please try updating again!"
   end
- end
+
+  def trigger_job
+    TransformationJob.perform_now
+    
+    redirect_to conversions_job_done_path
+  end
+
+  def job_done
+    @conversions = Conversion.all
+  end
+
+  def edit
+  end
+
+  def update
+    @conversion = Conversion.find(params[:id])
+    if @conversion.update(conversion_params)
+      flash.notice = "Uploading information was succesfully updating"
+      redirect_to conversions_path
+    else
+      flash.now.alert = "Something went wrong. Please try updating again!"
+    end
+  end
  
  private
 

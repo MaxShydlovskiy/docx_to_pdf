@@ -26,9 +26,7 @@
          <tr>   
             <td><%= conversion.name %></td>   
             <td><%= link_to "Download .doc", conversion.doc_file_url %></td>
-            <td><%= form_with url: conversions_trigger_job_path do |f| %>
-               <%= f.submit 'Click for transformation' %>
-            <% end %>   
+            <td><%= link_to "Download .pdf", conversion.pdf_file_url %></td>   
          </tr>   
             
       <% end %>   
